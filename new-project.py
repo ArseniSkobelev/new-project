@@ -8,16 +8,18 @@ from colorama import init, Fore, Back, Style
 
 init(convert=True)
 
+# get directory from where the scipt was started
 cwd = os.getcwd()
 
+# save command line arguments
 projectProperties = sys.argv
 
+# get template directory for further copy
 templateDirectory = os.path.dirname(
     os.path.realpath(sys.argv[0])) + "\Templates"
 
 
 def main():
-
     # Welcome message
     welcomeString = """
                                                     _              _   
@@ -30,7 +32,6 @@ def main():
                                 |_|              |__/                  
     """
     print(Fore.GREEN + welcomeString)
-    # print(Style.RESET_ALL)
 
     try:
         stringInt = int(projectProperties[2])
@@ -46,20 +47,18 @@ def main():
                                 "\VanillaJS", cwd + '/' + projName)
             case "2":
                 print("Project type: HTML, CSS, vanilla JS and Tailwind.css")
-                # copy_tree(templateDirectory +
-                #           "\VanillaJSWithTailwind", cwd)
-                # os.mkdir(cwd + '/' + projName)
                 shutil.copytree(templateDirectory +
                                 "\VanillaJSWithTailwind", cwd + '/' + projName)
             case "3":
                 print("Project type: NodeJS")
-                # os.system('cmd /c "npm init -y"')
+                os.system('cmd /c mkdir {}'.format(projName))
+                os.system('cmd /c cd {}'.format(projName))
+                os.chdir(cwd + "/" + projName)
+                os.system('cmd /c "npm init -y"')
             case "4":
                 return print("ReactJS")
 
     createProject(projectProperties[2], projectProperties[1])
-
-    # get directory from where the scipt was started
 
 
 if __name__ == "__main__":
