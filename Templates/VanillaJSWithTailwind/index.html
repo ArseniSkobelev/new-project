@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="index.js"></script>
+</head>
+<body>
+    <div class="flex justify-center items-center h-[100vh] flex-col">
+        <h1 class="text-[24px]">Hello World</h1>
+        <div class="flex flex-row text-[16px]">
+            <p class="pr-2">Counter:</p>
+            <p id="counter"></p>
+        </div>
+        <button class="text-[10px] bg-black text-white rounded px-8 py-1 mt-2" onclick="increase()">Click</button>
+    </div>
+</body>
+</html>
